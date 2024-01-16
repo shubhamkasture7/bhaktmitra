@@ -1,0 +1,147 @@
+*{
+    margin-top: 35px;
+    margin-left: 20PX;
+    border: 2px solide black;
+}
+.container {
+    align-items: normal;
+    margin: 20px;
+    border: 2px solide black;
+    
+
+
+}
+input[type=text], textarea{
+    width: 76%;
+    padding: 12px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    background: #f1f1f1;
+    border: 1.2px dotted rgb(77, 76, 125);
+    font-size: medium;
+    text-transform: capitalize;
+    border-radius: 6.5px;
+
+}
+
+input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+.button:hover {
+  opacity:1;
+  
+}
+/* Skeleton main style */
+.pi {
+    width: auto;
+    
+   
+}
+h3 {
+    border: 1.5px solid black ;
+    border-radius: 10px ;
+    background-color: #F99417;
+    font-size: 40px;
+    font-weight: 700;
+    color: #363062;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+h3:hover {
+    color: red;
+    background-color: yellow;
+ }
+ h4:hover {
+    color: red;
+ }
+  
+h4 {
+    margin-left: 5%;
+    border: 2px dotted transparent;
+    font-size: 25px;
+    font-weight: 400;
+    display: flexs ;
+    justify-content: flex-start;
+    text-transform: uppercase;
+}
+.submit {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items:flex-end;
+    text-align: center;
+      
+}
+
+#submit {
+    text-decoration:none;
+    color: black;
+}
+button {
+    font-size: 25px;
+    font-weight: 400;
+    border: 1.2px solid #4D4C7D;
+    border-radius: 23px;
+
+}
+button:hover {
+    background-color: #F99417;
+}
+.contact{
+    border-radius: 7px;
+    width: 280px;
+    height: 48px;
+    font-size: 21px;
+    background-color: #ddd;
+
+}
+
+.contact:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+.describe {
+    font-size: 18px;
+    
+}
+
+.age {
+    border: 1.4px dotted black;
+    border-radius: 8px;
+    width: 250px;
+    height: 50px;
+    font-size: 23px ;
+}
+
+/* .c_dob {
+    border: 2px dotted black;
+    border-radius: 8px;
+    width: 250px;
+    height: 50px;
+    font-size: 22px ;
+} */
+.age:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+.choose {
+    border: 1.3px dotted black;
+    border-radius: 8px;
+    width: 180px;
+    height: 45px;
+}
+.choose:focus {
+    background-color: #ddd;
+    border: 2px solid black;
+}
+

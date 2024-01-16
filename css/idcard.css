@@ -1,0 +1,56 @@
+/* a{
+    font-size: 100px;
+    align-items: center;
+    color: rgb(253, 18, 18);
+    font-weight: 700;
+    text-align: center;
+} */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.id-card {
+    background-color: #fff;
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.photo img {
+    width: 100px;
+    height: 110px;
+    border: 2px solid #000;
+}  
+
+.info {
+    margin-top: 20px;
+    height: 110px;
+    width: 170px;
+    border: 1.3px solid transparent;
+    text-align: start;
+}
+
+.info h2, .info p {
+    margin: 5px 0;
+}
+
+.qrcode {
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    text-align: end;
+    
+}
