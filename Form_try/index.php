@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group</title>
-    <link rel="stylesheet" href="css/groupinfo.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h2>Group Information</h2>
-        <form action="#" method="post">
+        <form action="connect.php" method="post">
             <div class="form-group">
                 <label for="name"> Group Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="contact">Organiser Name:</label>
-                <input type="text" id="contact" name="Organiser_name" required>
+                <input type="text" id="contact" name="organiser_name" required>
             </div>
             <div class="form-group">
                 <label for="contact">Number of people:</label>
-                <input type="tel" id="contact" name="NO._people" required>
+                <input type="tel" id="contact" name="peoples" required>
             </div>
             <div class="form-group">
                 <label for="contact">Contact number of Organiser:</label>
-                <input type="tel" id="contact" name="Organiser_contact" required>
+                <input type="tel" id="contact" name="organiser_contact" required>
             </div>
             <div class="form-group">
                 <label for="dob">Date of Birth:</label>
@@ -36,16 +36,16 @@
             </div>
             <div class="form-group">
                 <label for="address">Address:</label>
-                <textarea id="address" name="Address" rows="4" required></textarea>
+                <textarea id="address" name="address" rows="4" required></textarea>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="contact">Co-Organiser Name:</label>
                 <input type="text" id="contact" name="Co-Organiser_name" required>
             </div>
             <div class="form-group">
                 <label for="contact">Contact number of Co-Organiser:</label>
                 <input type="tel" id="contact" name="Co-Organiser_Contact" required>
-            </div> 
+            </div>  -->
             <div class="form-group">
                 <input type="submit" value="Submit" id="submit">
             </div>

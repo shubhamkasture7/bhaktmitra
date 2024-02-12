@@ -1,8 +1,6 @@
 *{
-    margin-top: 35px;
-    margin-left: 20PX;
-    border: 2px solide black;
-}
+   margin: 0;
+} 
 .container {
     align-items: normal;
     margin: 20px;
@@ -12,12 +10,12 @@
 
 }
 input[type=text], textarea{
-    width: 76%;
-    padding: 12px;
-    margin: 5px 0 22px 0;
+    width: 75vw;
+    /* padding: 12px; */
+    margin: 5px 0 5px 0;
     display: inline-block;
     background: #f1f1f1;
-    border: 1.2px dotted rgb(77, 76, 125);
+    border: 1px dotted rgb(77, 76, 125);
     font-size: medium;
     text-transform: capitalize;
     border-radius: 6.5px;
@@ -41,17 +39,17 @@ input[type=text]:focus {
 }
 h3 {
     border: 1.5px solid black ;
-    border-radius: 10px ;
+    /* border-radius: 10px ; */
     background-color: #F99417;
-    font-size: 40px;
+    font-size: 14%;
     font-weight: 700;
     color: #363062;
     font-family: 'Times New Roman', Times, serif;
-    display: flex;
-    flex-direction: row;
+    display:contents;
+    /* flex-direction: row; */
     justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
+    /* flex-wrap: wrap;
+    align-items: center; */
 }
 h3:hover {
     color: red;
@@ -78,13 +76,10 @@ h4 {
     flex-wrap: wrap;
     align-items:flex-end;
     text-align: center;
-      
+      text-decoration: none;
 }
 
-#submit {
-    text-decoration:none;
-    color: black;
-}
+
 button {
     font-size: 25px;
     font-weight: 400;
