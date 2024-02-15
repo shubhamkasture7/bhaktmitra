@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Information</title>
+</head>
+<body>
+<h2>QR Code Information</h2>
+<div id="qrInfo"></div>
+
+<script>
+// Function to decode the QR code text from the query parameter
+function getQRInfo() {
+    // Get the query parameter from the URL
+    var query = window.location.search.substring(1);
+    // Decode the query parameter (QR code text)
+    var decodedQRText = decodeURIComponent(query);
+    // Display the decoded QR code text
+    document.getElementById('qrInfo').innerText = decodedQRText;
+}
+
+// Call the getQRInfo() function when the page loads
+getQRInfo();
+</script>
+</body>
+</html>
