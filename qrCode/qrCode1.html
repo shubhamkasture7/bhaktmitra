@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Registration Form</title>
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="qrCode.css">
 <style>
   .id-card {
@@ -20,6 +21,9 @@
     margin-bottom: 10px;
   }
 </style>
+=======
+<link rel="stylesheet" type="text/css" href="/qrCode/">
+>>>>>>> 99ba43568a7a8cb9d47068aa4688cb12748cdf65
 </head>
 <body>
 <div class="container">
@@ -49,6 +53,7 @@
     <div id="id-card-container"></div> <!-- Container for ID card -->
 </div>
 
+<<<<<<< HEAD
 <script src="qrcode.min.js"></script>
 <script src="qr.js"></script>
 <script>
@@ -101,6 +106,23 @@
             link.click();
         });
     }
+=======
+<script>
+function generateQRCode() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var qrText = "Name: " + name + "\nEmail: " + email + "\nPhone: " + phone;
+    
+    var url = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=" + encodeURIComponent(qrText);
+
+    var ifr = `<iframe src="${url}" height="200" width="200"></iframe>`;
+
+    document.getElementById('qrcode').innerHTML = ifr;
+}
+
+
+>>>>>>> 99ba43568a7a8cb9d47068aa4688cb12748cdf65
 </script>
 </body>
 </html>

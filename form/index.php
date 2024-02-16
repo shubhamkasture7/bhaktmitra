@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group</title>
+    <!-- <script src="../sweetalert.min.js"></script> -->
     <link rel = "stylesheet" href = "../form/style1.css">
     <style>
         
@@ -136,7 +137,7 @@ input[type=text]:focus {
         <!-- <div class="pi">
             <h3>Personal </h3>
         </div> -->
-        <form action="connection.php" method="post">
+        <form id="myForm" action="connection.php" method="post">
             <div>
                 <h4 class="pi">Personal Information</h4>
             </div>
@@ -152,16 +153,16 @@ input[type=text]:focus {
                 <div class="d-f-contact">
                     <label><li>Family Contact Number:</li></label>
                     <input class="contact" id="inYear" type="number" placeholder="Number 1" name="contact1" required>
-                    <input class="contact" type="number" placeholder="Number 2" name="contact2" required>
+                    <input class="contact" type="number" id="inYear1" placeholder="Number 2" name="contact2" required>
                 </div>
                 <div class="d-name">
                     <leble for="name"><li>Name of Organiser:</li></leble>
-                    <input type="text" placeholder="Name" name="oname">
+                    <input type="text" placeholder="Name" id="oContN" name="oname">
                 </div>
                 <div class="o-contect">
                     <label><li>Organizer Contact Number:</li></label>
-                    <input class="contact" type="number" placeholder="Number 1"  name="ocontect">
-                    <input class="contact" type="number" placeholder="Number 2" name="ocontect1">
+                    <input class="contact" id="oContNo" type="number" placeholder="Number 1"  name="ocontect">
+                    <input class="contact" id="oContNo1" type="number" placeholder="Number 2" name="ocontect1">
 
                 </div>
 
@@ -179,7 +180,7 @@ input[type=text]:focus {
                 </div>
                 <div>
                     <leble for="age"><li>Age of Devotee:</li></leble>
-                    <input type="number" class="age" placeholder="eg. 45 years"  name="age">
+                    <input type="number" class="age" id="age" placeholder="eg. 45 years"  name="age">
                 </div>
                 <div class="dob">
                     <leble><li>Date of Birth:</li></leble>
@@ -191,7 +192,7 @@ input[type=text]:focus {
                 </div>
                 <div class="d-disease">
                     <label for="Disease"><li>Having any Disease:</li></label>
-                    <textarea type="text" class="describe" placeholder="Describe & mension Medicine" name="disease"></textarea>
+                    <textarea type="text" class="describe" placeholder="Describe & mension Medicine"  id="disease" name="disease"></textarea>
                 </div>
                 <div>
                          
@@ -203,14 +204,16 @@ input[type=text]:focus {
             </ol>
         
             <div class="submit" >
-                <button type="submit" id="myForm" style="text-decoration: none; color: white;">SUBMIT</button>
-                <!-- <button type="submit" id="preview">SUBMI T <a id="submit" href="idcard.html"> <a id="submit" href="http://localhost/Bhakt%20Mitra/form/index.php#card"> </a></button> -->
+                <!-- <button type="submit" style="text-decoration: none; color: white;" onclick="submitForm(event)</button> -->
+                <button type="submit" onclick="generateQRCode()"> QR code</button>
 
             </div>
             <p> Scrol down and previvw your idcard nad Download <br> After that submit</p>
-            </form>             
+            </form>   
+                  
             
         </div>
+       <div id="qrcode"></div>
         <div class="box" id="card">
             <div class="container" >
                 <canvas id="result" class="card">
@@ -229,19 +232,54 @@ input[type=text]:focus {
                             <li id="name"></li>
                             <li id="birth"></li>
                             <li id="fieldYear"></li>
-                            <li id="no"></li>
+                            <li id="nob"></li>
                             <li>:<span id="num"></span></li>
                         </ul>
+                    <img id="qrcode">
+
                     </div>
                     
                 </canvas>
             </div>    
 
-            <button type="" class="show" id="preview">Preview</button>
+            <button  class="show" id="preview">Preview</button>
             <button id="down">Download</button>
         </div>
-  <script src="../main.js"></script>
 
+  <script src="../main.js"></script>
+  <script>
+function generateQRCode() {
+    var name = document.getElementById('inName').value;
+    var address = document.getElementById('inField').value;
+    var fContact = document.getElementById('inYear').value;
+    var fContact1 = document.getElementById('inYear1').value;
+    var oContN = document.getElementById('oContN').value;
+    var oContNo = document.getElementById('oContNo').value;
+    var oContNo1 = document.getElementById('oContNo1').value;
+    var gen = document.getElementById('inNum').value;
+    var age = document.getElementById('age').value;
+    var dob = document.getElementById('inBirth').value;
+    var disease = document.getElementById('disease').value;
+    var qrText = "Name: " + name + "\nAddress: " + address + "\nFamily Contact: " + fContact + "\n " + fContact1 + "\nOrganiser Name: " + oContN + "\nOrganiser Contact: " + oContNo +"\n " + oContNo1 + "\nGender: " + gen + "\nAge: " + age +  "\nDOB: " + dob + + "\nDisease: " + disease ;
+    
+
+    // Generate the QR code HTML
+    var url = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=" + encodeURIComponent(qrText);
+    // var url = "https://chart.googleapis.com/chart?cht=qr&chs=20x20&chl=" + encodeURIComponent(qrText);
+console.log(url);
+
+    var ifr = `<iframe src="${url}" height="200" width="200"></iframe>`;
+
+    document.getElementById('qrcode').innerHTML = ifr;
+console.log(typeof(ifr));
+    // Append the QR code HTML to the card  container
+    // document.getElementById('result').innerHTML += qrCodeHTML;
+
+
+}
+
+
+</script>
 
    
 </body>
