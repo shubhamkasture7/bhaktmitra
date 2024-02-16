@@ -194,7 +194,7 @@
       <div class="shop">
          <div class="container-fluid">
             <h1 id="h1">QR code</h1>
-            <p class="q-disc">You can scan QR code which present on ID card.<br>I hope this will going to very helpfull to you.</p>
+            <p class="q-disc"></p>
             <div  class="search1">
                <main>
                   <div id="reader"></div>  
@@ -232,7 +232,8 @@
                   });
               
                   scaner.render(success, error);
-              
+                
+               
                   function success(result) {
                       // console.log(result);
                       document.getElementById('result').innerHTML = `
@@ -245,6 +246,8 @@
                       scaner.clear();
                       document.getElementById('reader').remove();
                   }
+                  
+
               
                   function error(err){
                       console.error(err);
@@ -283,7 +286,8 @@
                <div class="col-md-5 order_1_mobile">
                   <div class="titlepage text_align_left ">
                      <h2>MISSING CELL <br>Police</h2>
-                     <p>Only thing you can do is to lodge a complaint at the police station where he was staying and report about his missing . Police will inform their counterparts and if they get any information they will inform the details.
+                     <p>Only thing you can do is to lodge a complaint at the police station where he was staying and report about his missing . 
+                        Police will inform their counterparts and if they get any information they will inform the details.
                      </p>
                      <a class="read_more" href="#">CONTACT</a>
                   </div>
@@ -348,23 +352,41 @@
             <div class="row">
                <div class="col-md-4">
                   <div class="skating-box ">
-                     <figure><img src="images/sanatan-flag.jpg" alt="#"/></figure>
+                     <div class="how-to-use">
+                        <!-- <figure><img src="images/sanatan-flag.jpg" style="z-index: -33;" alt="#"/></figure> -->
+                        
+                        <h3>Register effortlessly on our website, providing essential personal details and event preferences.</h3>
+                        
+                       <p> Visit our user-friendly website and enter your information.
+                        Select the event you're attending and submit your registration.
+                        Receive your unique QR code, simplifying access to assistance during the event</p>
+
+                     </div>
+                     
                      <div class="link_btn">
                         <a class="read_more" href="Javascript:void(0)">Step 1</a>
                      </div>
                   </div>
                </div>
                <div class="col-md-4">
-                  <div class="skating-box">
-                     <figure><img src="images/sanatan-flag.jpg" alt="#"/></figure>
+                  <div class="how-to-use" >
+                     
+                       <h3>Ensure peace of mind at events with the Devotee ID Card System's assistance features.</h3>
+
+                       <p> Approach a designated missing cell station if separated from your group.
+                        Present your ID card for scanning by our trained volunteers.
+                        Receive swift assistance, whether it's reuniting with your group or receiving directions.</p>
+            
+                  </div>
+                     <!-- <figure><img src="images/sanatan-flag.jpg" alt="#"/></figure> -->
                      <div class="link_btn">
                         <a class="read_more" href="Javascript:void(0)">Step 2</a>
-                     </div>
+                     
                   </div>
                </div>
                <div class="col-md-4">
                   <div class="skating-box">
-                     <figure><img src="images/sanatan-flag.jpg" alt="#"/></figure>
+                     <figure><img src="images/sanatan-flag.jpg" /></figure>
                      <div class="link_btn">
                         <a class="read_more" href="Javascript:void(0)">Step 3</a>
                      </div>
@@ -380,8 +402,18 @@
             <div class="row d_flex">
                <div class="col-md-6">
                   <div class="titlepage text_align_left">
-                     <h2>About <br><h3 class="p-title">AI Driven missing person locator</h3></h2>
-                     <p>Every year near about 15 to 20 lakh peoples visit Pandharpur during Ashadhi Vari & Kartiki Vari.Many peoples are uneducated and are unaware about places in Pandharpur.With the help of this project we are going to provide solution with the help of website and app. All infirmation of individual will be entered at the time of registration the Indenty card with QR code will be provided.If the individual is losts we can easyly find him/her.
+                     <h2>About </h2>
+                     <br>
+                     <h3 class="p-title">Missing Devotees Locator</h3>
+                     <p>
+                        The Missing Devotees Locator project offers a critical solution for ensuring the safety and security of devotees
+                        visiting Pandharpur during the Ashadhi and Kartiki Vari festivals.
+                        Through a combination of registration, identity card generation, and real-time tracking technology, 
+                        the initiative aims to swiftly address incidents of missing individuals. By providing a centralized database and
+                        a quick response mechanism, the platform enables efficient coordination among authorities, volunteers, and concerned parties. 
+                        This collaborative approach not only enhances the effectiveness of search and rescue operations but also instills confidence and 
+                        peace of mind among devotees and their families.
+                        Ultimately, the project serves as a testament to the power of technology and community engagement in safeguarding the well-being of individuals during religious gatherings.
                      </p>
                      <div class="link_btn">
                         <a class="read_more" href="about.html">Read More</a>
@@ -390,7 +422,7 @@
                </div>
                <div class="col-md-6">
                   <div class="about_img text_align_center">
-                     <figure><img src="images/about1.png" alt="#"/></figure>
+                     <figure><img src="/images/vitthal_rukmini.png" style="background-blend-mode: burn;" alt="#"/></figure>
                   </div>
                </div>
             </div>

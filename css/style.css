@@ -30,6 +30,7 @@ i am shubham kasture
 
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
 
+
 /* body {
      background: linear-gradient(180deg , #ebc2c2, #fff);}  */
 
@@ -307,8 +308,31 @@ button {
 
 /**-- heading section --**/
 
+/* Responsive media query */
+@media (max-width: 420px) {
+     .board h3 {
+     display:none;
+     
+ }
+}
+
+@media (max-width: 420px) {
+     .board h4 {
+     display:none;
+     
+ }
+}
+
+@media (max-width: 420px) {
+     .read_more {
+     display:none;
+     
+ }
+}
+
 
 /*---------------------------- preloader area ----------------------------*/
+
 
 .loader_bg {
      position: fixed;
@@ -597,15 +621,19 @@ ul.email li i {
 }
 
 .about .titlepage h2 {
+     padding-top: 20px;
      padding-bottom: 30px;
      color: #fff;
 }
 .p-title {
-     font-size: 25px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 'Times New Roman', Times, serif 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, Calibri, 'Trebuchet MS', sans-serif, Arial, sans-serif;
+     font-size: 30px;
+     font-weight: 900;
      color: rgb(245, 0, 0);
      text-shadow: #000000;
      font-weight: 400;
      text-align: justify;
+     padding: 20px;
 }
 
 .about .titlepage p {
@@ -622,7 +650,7 @@ ul.email li i {
 
 .about_img figure img {
      width: 100%;
-     margin-bottom: -11px;
+     margin-bottom: 80px;
 }
 
 .about .read_more {
@@ -658,12 +686,48 @@ ul.email li i {
 }
 
 .skating-box figure img {
+     background-image: "images/sanatan-flag.jpg";
      max-width: 100%;
      margin-bottom: 35px;
+     
+}
+
+.how-to-use{
+     z-index: 33;
+     height:500px;
+     width: 400px;
+     color: black;
+     background-color: #FFB996;
+     /* background-image:url("https://th.bing.com/th?id=OIP.aSeQXa7E8x0mS0MUgowDZAHaJL&w=224&h=278&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"); */
+     background-size: cover;
+     
+     /* display: flex;
+     align-items: center; */
+     justify-content: center;
+     text-align: center;
+     background-image: linear-gradient(to bottom right, #ff9933, #ffffff);
+
+}
+
+.how-to-use h3 {
+     color: #f0390f;
+     padding: 5px;
+     margin-top: 25px;
+     padding-top: 20px;
+     font-size: 25px;
+     font-weight: 600;
+}
+
+
+.how-to-use p {
+     
+     font-size: 20px;
+     margin: 5.2vh;
 }
 
 .skating .read_more::before {
      left: 89px;
+     
 }
 .warkari {
      height: 50%;

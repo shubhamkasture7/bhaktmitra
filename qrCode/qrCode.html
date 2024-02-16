@@ -4,7 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Registration Form</title>
-<link rel="stylesheet" type="text/css" href="/qrCode.css">
+<link rel="stylesheet" type="text/css" href="qrCode.css">
+<style>
+  .id-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    max-width: 300px;
+  }
+  .id-card img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+</style>
 </head>
 <body>
 <div class="container">
@@ -21,11 +36,71 @@
         <label for="phone">Phone:</label>
         <input type="tel" id="phone" name="phone" required>
     </div>
-    <button onclick="generateQRCode()">Generate QR Code</button>
-    <div id="qrcode"></div>
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+    </div>
+    <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+    </div>
+    <button onclick="generateIDCard()">Generate ID Card</button>
+    <button onclick="downloadIDCard()">Download ID Card</button>
+    <div id="id-card-container"></div> <!-- Container for ID card -->
 </div>
 
-<script src="/qrCode.js"></script>
-<!-- <script src="qr.js"></script> -->
+<script src="qrcode.min.js"></script>
+<script src="qr.js"></script>
+<script>
+    function generateIDCard() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
+        var age = document.getElementById('age').value;
+        var address = document.getElementById('address').value;
+        var qrText = "Name: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\nAge: " + age + "\nAddress: " + address;
+        var qrUrl = "https://chart.googleapis.com/chart?cht=qr&chs=100x100&chl=" + encodeURIComponent(qrText);
+
+        // Redirect URL to the new HTML page with data
+        var redirectUrl = "show_data.html?name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&phone=" + encodeURIComponent(phone) + "&age=" + encodeURIComponent(age) + "&address=" + encodeURIComponent(address);
+
+        // Create QR code with link to the new HTML page
+        var qrCodeImage = document.createElement('img');
+        qrCodeImage.src = qrUrl;
+        qrCodeImage.alt = "QR Code";
+        qrCodeImage.onclick = function() {
+            window.location.href = redirectUrl;
+        };
+
+        // Create ID card element
+        var idCard = document.createElement('div');
+        idCard.classList.add('id-card');
+        idCard.innerHTML = `
+          <img src="${qrUrl}" alt="QR Code">
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Age:</strong> ${age}</p>
+          <p><strong>Address:</strong> ${address}</p>
+        `;
+
+        // Clear previous content in the container
+        var container = document.getElementById('id-card-container');
+        container.innerHTML = '';
+
+        // Append ID card to the container
+        container.appendChild(idCard);
+    }
+
+    function downloadIDCard() {
+        var container = document.getElementById('id-card-container');
+        html2canvas(container).then(function(canvas) {
+            var link = document.createElement('a');
+            link.download = 'IDCard.png';
+            link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            link.click();
+        });
+    }
+</script>
 </body>
 </html>
