@@ -3,12 +3,12 @@ const preview = document.getElementById("preview");
 preview.addEventListener("click", prev);
 
 canvas.height = canvas.width / 1.616;
-const ctx = canvas.getContext("2d");
+var ctx = canvas.getContext("2d");
 ctx.font = "20px Helvetica";
 
 const image = document.getElementById("imgDisplayed");
 const logo = document.getElementById("logo");
-const qr = document.getElementById("qrcode");
+// var qr = document.getElementById("qrcode");
 
 function prev() {
     let inName = document.getElementById("inName").value;
@@ -48,30 +48,16 @@ function prev() {
     ctx.fillText("No: " + nob.innerHTML, 110, 148);
     ctx.fillText("Gender:" + num.innerHTML, 110, 165);
     ctx.drawImage(image, 10, 65, 80, 110);
-    ctx.drawImage(qr,10,95,50,50);
+    ctx.drawImage(qr,10,90,50,50);
 }
 
-// function generateQRCode() {
-//     // Generate QR code and draw on canvas
-//     // Example: Use an external library or API to generate QR code image
-//     const qrCodeImage = new Image();
-//     var url = "https://chart.googleapis.com/chart?cht=qr&chs=20x20&chl=" + encodeURIComponent(qrText);
-//     qrCodeImage.src = "<img src="${url}">";
-//     qrCodeImage.onload = function() {
-//         ctx.drawImage(qrCodeImage, canvas.width - 60, canvas.height - 60, 50, 50);
-//     };
-// }
+
 
 function loadImage(event) {
   const image = document.getElementById("imgDisplayed");
   image.src = URL.createObjectURL(event.target.files[0]);
 }
 
-function loadQr(event) {
-    const qr = document.getElementById("qrcode");
-    qr.src = URL.createObjectURL(event.target.files[0]);
-
-}
 
 const download = document.getElementById("down");
 download.addEventListener("click", function(){

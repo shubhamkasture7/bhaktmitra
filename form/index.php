@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group</title>
     <!-- <script src="../sweetalert.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
     <link rel = "stylesheet" href = "../form/style1.css">
     <style>
         
@@ -13,7 +15,6 @@
     margin: 1px;
     padding-top: 12vh;
     padding-left: 8vw ;
-    height: 100vmax;
     font-size: 23px;
     left: 20px;
     width: 80vw;
@@ -134,9 +135,7 @@ input[type=text]:focus {
 <body>
     <!--Heder Start-->
     <div class="containe">
-        <!-- <div class="pi">
-            <h3>Personal </h3>
-        </div> -->
+        
         <form id="myForm" action="connection.php" method="post">
             <div>
                 <h4 class="pi">Personal Information</h4>
@@ -204,16 +203,15 @@ input[type=text]:focus {
             </ol>
         
             <div class="submit" >
-                <!-- <button type="submit" style="text-decoration: none; color: white;" onclick="submitForm(event)</button> -->
-                <button type="submit" onclick="generateQRCode()"> QR code</button>
+                <button type="submit" style="text-decoration: none; color: white;" onclick="submitForm(event); generateQRCode()">SUBMIT</button>
+                <!-- <button type="submit" onclick="generateQRCode()"> QR code</button> -->
 
             </div>
-            <p> Scrol down and previvw your idcard nad Download <br> After that submit</p>
             </form>   
                   
-            
+  
+
         </div>
-       <div id="qrcode"></div>
         <div class="box" id="card">
             <div class="container" >
                 <canvas id="result" class="card">
@@ -235,16 +233,26 @@ input[type=text]:focus {
                             <li id="nob"></li>
                             <li>:<span id="num"></span></li>
                         </ul>
-                    <img id="qrcode">
-
+                        <!-- <img id="qrcode"> -->
+                        
                     </div>
                     
                 </canvas>
             </div>    
-
+            <div class="card-back" id="card-back">
+              <div class="qrcode" id="qrcode"></div> 
+              <div class="qrcode-info">
+                <p>Scan this qrcode to get more information</p>
+              
+                </div>
+            </div>
             <button  class="show" id="preview">Preview</button>
             <button id="down">Download</button>
+            <button id="btnConvert">Convert to Image</button>
+
         </div>
+        
+
 
   <script src="../main.js"></script>
   <script>
@@ -265,13 +273,12 @@ function generateQRCode() {
 
     // Generate the QR code HTML
     var url = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=" + encodeURIComponent(qrText);
-    // var url = "https://chart.googleapis.com/chart?cht=qr&chs=20x20&chl=" + encodeURIComponent(qrText);
-console.log(url);
+    // var url = "https://api.qr-code-generator.com/v1/create?access-token=your-acces-token-here" + encodeURIComponent(qrText);
+// console.log(url);
 
-    var ifr = `<iframe src="${url}" height="200" width="200"></iframe>`;
+    var ifr = `<iframe src="${url}" height="150px" scrolling="no" width="150px"></iframe>`;
 
     document.getElementById('qrcode').innerHTML = ifr;
-console.log(typeof(ifr));
     // Append the QR code HTML to the card  container
     // document.getElementById('result').innerHTML += qrCodeHTML;
 
@@ -280,6 +287,59 @@ console.log(typeof(ifr));
 
 
 </script>
+
+<!-- <div id="divToConvert">
+        Your content here -->
+
+<script>
+    document.getElementById('btnConvert').addEventListener('click', function () {
+        html2canvas(document.getElementById('card')).then(function (canvas) {
+            var img = canvas.toDataURL('image/png');
+            var link = document.createElement('a');
+            link.href = img;
+            link.download = 'div_image.png';
+            link.click();
+        });
+    });
+</script>
+<!-- <script src="../form/html2canvas.js"></script> -->
+
+<style>
+   .card-back {
+    display: flex;
+    flex-direction: row;
+    height: 40vh;
+    width: 38vw;
+    border: 2px solid blue;
+    border-radius: 15px;
+    margin-left: 30vw;
+    padding: 10px;
+}
+
+.qrcode-info {
+    display: flex;
+    justify-content: center; /* Center QR code horizontally */
+    align-items: center; /* Center QR code vertically */
+}
+
+.qrcode {
+    height: 12em;
+    width: 12em;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .card-back {
+        width: 60vw; /* Adjust width for smaller screens */
+        height: 16vh;
+        margin: 0 auto; /* Center the card horizontally */
+    }
+   
+}
+
+</style>
 
    
 </body>
